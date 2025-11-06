@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment Received (Test) — PIXELLS</title>
+  <meta name="description" content="Test success page for crypto payments confirmation.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="./" class="brand" aria-label="Back to PIXELLS Home">
+        <img src="./assets/logo.svg" alt="PIXELLS logo" class="logo">
+      </a>
+      <p class="tagline">Instant crypto payments for access keys.</p>
+    </div>
+  </header>
+
+  <main id="content" class="container narrow" role="main">
+    <section class="section">
+      <h1 class="h1">Payment Received (Test)</h1>
+      <p class="lead">If you completed payment, your key will be delivered automatically after confirmation in the final build.</p>
+      <p>Keep your email/Discord open for delivery.</p>
+
+      <div class="box info" role="note" aria-label="Security tip">
+        <strong>Security tip:</strong> Your key appears once. Save it safely.
+      </div>
+
+      <p><a class="btn" href="./">Back to Home</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> PIXELLS. All rights reserved.</small>
+      <div class="contact">
+        <span id="contact-email" class="email">support@pixells.store</span>
+        <button class="btn-secondary" id="copy-email" type="button" aria-label="Copy contact email">Copy email</button>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const toastEl = document.getElementById('toast');
+      let toastTimer;
+      function showToast(message) {
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove('show');
+          toastEl.textContent = '';
+        }, 3500);
+      }
+
+      const copyBtn = document.getElementById('copy-email');
+      const emailEl = document.getElementById('contact-email');
+      if (copyBtn && emailEl) {
+        copyBtn.addEventListener('click', async () => {
+          const email = emailEl.textContent.trim();
+          try {
+            await navigator.clipboard.writeText(email);
+            showToast('Email copied to clipboard');
+          } catch (e) {
+            showToast('Copy failed. Select and copy manually.');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
