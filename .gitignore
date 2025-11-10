@@ -1,0 +1,39 @@
+# === Node.js core ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# === Logs ===
+logs/
+*.log
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+# === System ===
+.DS_Store
+Thumbs.db
+
+# === Env / Secrets ===
+.env
+.env.local
+.env.*.local
+
+# === Render / Temp ===
+.tmp/
+.cache/
+dist/
+build/
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === OS trash ===
+*.bak
+*.tmp
