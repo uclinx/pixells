@@ -1,50 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pixells — Loading</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixells AutoJoiner — Minimal Serif</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: light only; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background: #000000;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: #ffffff;
-      display: grid;
-      place-items: center;
-    }
-    .wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-      padding: 24px;
-    }
-    .brand {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .brand h1 {
-      margin: 0;
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      line-height: 1;
-    }
+    html{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial}
+    .serif{font-family:'Source Serif 4', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif}
+    body{background:#fafaf9;color:#0f172a}
+    .header{background:#ffffffd9; backdrop-filter: blur(8px); border-bottom:1px solid #e7e5e4}
+    .chip{letter-spacing:.18em; text-transform:uppercase; color:#6b7280}
+    .btn{background:#0f172a; color:#fff}
+    .btn:hover{opacity:.95}
+    .card{background:white; border:1px solid #e7e5e4}
+    .muted{color:#6b7280}
+    .reveal{opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1; transform: translateY(0)}
+    .progress-bar{transition:width 1.2s ease}
+    .toast{transition: transform .3s ease, opacity .3s ease}
+    /* Dark mode overrides */
+    .dark body{background:#0b0f1a;color:#e5e7eb}
+    .dark .header{background:#0b0f1ad9; border-bottom:1px solid #334155}
+    .dark .chip{color:#94a3b8}
+    .dark .btn{background:#e5e7eb; color:#0b0f1a}
+    .dark .card{background:#0f172a; border-color:#334155}
+    .dark .muted{color:#94a3b8}
+    .dark .bg-zinc-50{background:#111827 !important}
+    .dark .bg-zinc-200{background:#334155 !important}
+    .dark .border-zinc-200{border-color:#334155 !important}
+    .dark .divide-zinc-200 > *{border-color:#334155 !important}
+    .dark footer a:hover, .dark header nav a:hover{color:#ffffff}
+    .theme-icon{width:20px; height:20px; display:block}
+    /* Dark mode form fields: editable inputs use black text */
+    .dark input:not([readonly]),
+    .dark textarea,
+    .dark select{color:#0b0f1a; background:#ffffff}
+    .dark input:not([readonly])::placeholder,
+    .dark textarea::placeholder{color:#9ca3af}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="brand">
-      <h1>Pixells</h1>
-      <h6> Coming Soon</h6>
+  <header class="header sticky top-0 z-40">
+    <div class="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
+      <a href="#home" class="serif text-lg font-semibold tracking-tight">Pixells AutoJoiner</a>
+      <nav aria-label="Main" class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#strengths" class="hover:text-black">Strengths</a>
+        <a href="#comparison" class="hover:text-black">Comparison</a>
+        <a href="#pricing" class="hover:text-black">Pricing</a>
+        <a href="#faq" class="hover:text-black">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="rounded-md border border-zinc-200 px-3 py-2 text-sm hover:bg-zinc-50" title="Toggle theme" aria-label="Toggle theme"></button>
+        <a href="#pricing" class="btn inline-flex items-center rounded-md px-4 py-2 text-sm font-medium">Start Now</a>
+        <a href="https://discord.gg/zReVtdMjGs" class="inline-flex items-center rounded-md border border-zinc-200 px-4 py-2 text-sm font-medium hover:bg-zinc-50">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="mx-auto max-w-6xl px-5 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <p class="chip text-xs">Private logs + optimized bots</p>
+        <h1 class="serif mt-2 text-5xl md:text-6xl font-semibold leading-tight">Pixells AutoJoiner</h1>
+        <p class="mt-4 muted max-w-xl">Private logs + optimized bots = faster joins and higher-quality results. Zero setup, zero noise — just efficiency.</p>
+        <div class="mt-8 flex items-center gap-3">
+          <a href="#pricing" class="btn inline-flex items-center rounded-md px-5 py-2.5 text-sm font-medium">Start Now</a>
+        </div>
+      </div>
+      <aside class="reveal">
+        <div class="card rounded-xl p-6">
+          <h3 class="serif font-semibold mb-4">What you get</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Private logs & bots — exclusive, limited access.</li>
+            <li>Low overhead — minimal memory pressure.</li>
+            <li>Predictable results — stable joining logic.</li>
+            <li>Easy to use — no Chilli Premium required.</li>
+            <li>Fast refresh — Pixells updates every 1s.</li>
+          </ul>
+        </div>
+        <div class="mt-4 card rounded-xl p-4">
+          <div class="flex items-start gap-3">
+            <div class="flex-1">
+              <div class="serif font-semibold">Eldorado Account — $30</div>
+              <div class="mt-1 text-sm muted">Eldorado account activated and ready to list and sell <strong>brainrots</strong> immediately. Full credentials delivered (mail + pass + gmail pass).</div>
+              <div class="mt-3 inline-flex items-center gap-2 text-xs px-2 py-1 rounded bg-zinc-100 dark:text-black">For Collector / Trader</div>
+            </div>
+            <div>
+              <a href="https://pixells.mysellauth.com/product/eldorado-account" target="_blank" rel="noopener" class="rounded-md border border-zinc-200 px-3 py-2 text-sm hover:bg-zinc-50">Buy</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="strengths" class="py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="serif text-3xl font-semibold mb-8">Key Strengths</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">Private logs & bots</h3><p class="text-sm muted">Exclusive data limited to a few daily users for top-quality hits.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">Low overhead</h3><p class="text-sm muted">Lightweight process and minimal system requirements.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">Predictable results</h3><p class="text-sm muted">Stable logic with consistent output and minimal desync.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">Easy to use</h3><p class="text-sm muted">Runs out of the box with no extra premium or complex setup.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">Fast refresh</h3><p class="text-sm muted">Pixells data refreshes every 1s via private bots for near-real-time results.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium mb-2">High privacy</h3><p class="text-sm muted">Limited daily access keeps logs private and high quality.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison" class="py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="serif text-3xl font-semibold mb-8">Direct Comparison</h2>
+        <div class="reveal overflow-hidden rounded-xl card">
+          <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="p-4 font-medium">Feature</div>
+            <div class="p-4 font-medium bg-zinc-50">Pixells (Private)</div>
+            <div class="p-4 font-medium">Chilli (Public)</div>
+          </div>
+          <div class="divide-y divide-zinc-200">
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">Log Access</div><div class="p-4 bg-zinc-50">Private logs, bot-controlled</div><div class="p-4">Public logs, open to many users</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 items-center">
+              <div class="p-4" tabindex="0">Hit Probability</div>
+              <div class="p-4 bg-zinc-50"><div class="text-sm mb-2">99% Rate Joining high servers</div><div class="h-2 w-full rounded bg-zinc-200 overflow-hidden"><div class="progress-bar h-2 bg-emerald-600 rounded" style="width:0%" data-target="99"></div></div></div>
+              <div class="p-4"><div class="text-sm mb-2">10% Rate Joining high servers</div><div class="h-2 w-full rounded bg-zinc-200 overflow-hidden"><div class="progress-bar h-2 bg-rose-600 rounded" style="width:0%" data-target="10"></div></div></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">Chilli Premium Required</div><div class="p-4 bg-zinc-50">❌ Not required</div><div class="p-4">✅ Required</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">System Requirements</div><div class="p-4 bg-zinc-50">Lightweight — runs on regular PC</div><div class="p-4">Requires strong Wi-Fi and high RAM</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">Data Refresh</div><div class="p-4 bg-zinc-50">Refreshed every 1s via private bots</div><div class="p-4">Shared & not private; slower refresh</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">Stability</div><div class="p-4 bg-zinc-50">High</div><div class="p-4">Medium</div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3"><div class="p-4" tabindex="0">Number of users </div><div class="p-4 bg-zinc-50">4 per day ( for more success rate )</div><div class="p-4">Infinity ( For Mor uses )</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="serif text-3xl font-semibold mb-8">Plans & Pricing</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="reveal card rounded-xl p-6 flex flex-col"><div class="flex-1"><div class="text-lg serif font-semibold">Plan 1 — Pixells</div><div class="mt-1 text-3xl serif font-bold">$25 <span class="text-base font-medium muted">/ day</span></div><p class="mt-3 text-sm muted">Private logs + automated bots for maximum hit-rate. No Chilli Premium required.</p></div><a href="https://pixells.mysellauth.com/product/pixells-day-pass" target="_blank" rel="noopener" class="mt-6 btn w-full rounded-md px-4 py-2 font-medium">Buy Pixells — $25/day</a></div>
+          <div class="reveal card rounded-xl p-6 flex flex-col"><div class="flex-1"><div class="text-lg serif font-semibold">Plan 2 — Chilli</div><div class="mt-1 text-3xl serif font-bold">$2 <span class="text-base font-medium muted">/ day</span></div><p class="mt-3 text-sm muted">Basic public-logs option; lower success probability. Requires Chilli Premium.</p></div><a href="https://pixells.mysellauth.com/product/chilli-day-pas" target="_blank" rel="noopener" class="mt-6 w-full rounded-md px-4 py-2 font-medium text-white" style="background:#64748b">Buy Chilli — $2/day</a></div>
+          <div class="reveal md:col-span-2 card rounded-xl p-6 flex flex-col border-amber-300" aria-hidden="false">
+            <div class="flex-1">
+              <div class="text-lg serif font-semibold">Eldorado Account</div>
+              <div class="mt-1 text-3xl serif font-bold">$30 <span class="text-base font-medium muted">/ one-time</span></div>
+              <p class="mt-3 text-sm muted">Activated Eldorado account, ready to list and sell brainrots. Full credentials delivery: account email + password + Gmail password. Suitable for Collector / Trader.</p>
+              <ul class="mt-3 text-sm space-y-1">
+                <li>Ready & Verified — New, activated account — instant access.</li>
+                <li>Full Credentials — Delivery: account email + password + Gmail password.</li>
+                <li>For Traders — Ideal for selling brainrots fast.</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <a href="https://pixells.mysellauth.com/product/eldorado-account" target="_blank" rel="noopener" class="mt-2 btn w-full rounded-md px-4 py-2 font-medium">Buy Eldorado — $30</a>
+            </div>
+          </div>
+        </div>
+        <p class="reveal mt-6 text-sm muted">Payments supported: Card, PayPal, BTC, LTC, ETH.</p>
+      </div>
+    </section>
+
+    <section id="faq" class="py-16">
+      <div class="mx-auto max-w-6xl px-5">
+        <h2 class="serif text-3xl font-semibold mb-8">FAQ</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium">Q1: Is Chilli still useful?</h3><p class="mt-2 text-sm muted">A1: Yes — for low-cost testing or short-term use. Pixells provides far higher consistency and speed.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium">Q2: Do I need Chilli Premium for Pixells?</h3><p class="mt-2 text-sm muted">A2: No — Pixells does not depend on Chilli.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium">Q3: What do I need to run Pixells?</h3><p class="mt-2 text-sm muted">A3: A regular PC with a stable connection. It is optimized for minimal load.</p></div>
+          <div class="reveal card rounded-xl p-6"><h3 class="serif font-medium">Q4: Is Pixells limited?</h3><p class="mt-2 text-sm muted">A4: Yes — access is intentionally limited to keep logs private and high quality (few users per day).</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-200 py-10">
+    <div class="mx-auto max-w-6xl px-5 text-sm flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>© <span id="year"></span> Pixells AutoJoiner</div>
+      <div class="muted">Fast, private, and controlled — Pixells AutoJoiner outperforms public log joiners by design.</div>
+    </div>
+  </footer>
+
+  <div id="purchaseModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-label="Confirm Purchase">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative mx-auto mt-24 w-[90%] max-w-lg rounded-xl card p-6">
+      <h3 class="serif text-lg font-semibold mb-4">Confirm Purchase</h3>
+      <form id="purchaseForm" class="space-y-4">
+        <div><label class="block text-sm mb-1" for="buyerName" aria-label="Buyer name">Buyer name</label><input id="buyerName" type="text" placeholder="Your name" class="w-full rounded-md border border-zinc-200 px-3 py-2" required /></div>
+        <div><label class="block text-sm mb-1" for="buyerEmail" aria-label="Buyer email">Buyer email</label><input id="buyerEmail" type="email" placeholder="you@example.com" class="w-full rounded-md border border-zinc-200 px-3 py-2" required /></div>
+        <div class="grid grid-cols-2 gap-4">
+          <div><label class="block text-sm mb-1">Plan</label><input id="planField" type="text" readonly class="w-full rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2" /></div>
+          <div><label class="block text-sm mb-1">Price (USD)</label><input id="priceField" type="text" readonly class="w-full rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2" /></div>
+        </div>
+        <div id="modalNote" class="text-sm muted"></div>
+        <div class="flex items-center justify-end gap-3 pt-2"><button type="button" id="cancelModal" class="rounded-md border border-zinc-200 px-4 py-2 text-sm bg-white">Cancel</button><button type="submit" class="btn rounded-md px-4 py-2 text-sm font-medium">Confirm</button></div>
+      </form>
     </div>
   </div>
+
+  <div id="toast" class="toast fixed bottom-6 right-6 z-[60] translate-y-4 opacity-0 pointer-events-none"><div id="toastInner" class="rounded-md bg-emerald-600 text-white px-4 py-3 shadow-lg">Purchase submitted</div></div>
+
+  <script>
+    const modal=document.getElementById('purchaseModal');
+    const planField=document.getElementById('planField');
+    const priceField=document.getElementById('priceField');
+    const form=document.getElementById('purchaseForm');
+    const toast=document.getElementById('toast');
+    const toastInner=document.getElementById('toastInner');
+    const yearEl=document.getElementById('year');
+    const themeToggle=document.getElementById('themeToggle');
+    const modalNote=document.getElementById('modalNote');
+    yearEl.textContent=new Date().getFullYear();
+
+    // Theme toggle with persistence and icon swap
+    const root=document.documentElement;
+    const THEME_KEY='theme';
+    const moonSvg=`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="theme-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" /></svg>`;
+    const sunSvg=`<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="theme-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg>`;
+    function renderThemeIcon(){ themeToggle.innerHTML = root.classList.contains('dark') ? sunSvg : moonSvg; }
+    function setTheme(mode){ if(mode==='dark'){root.classList.add('dark');} else {root.classList.remove('dark');} localStorage.setItem(THEME_KEY, mode); renderThemeIcon(); }
+    // Initialize theme
+    (function initTheme(){ const saved=localStorage.getItem(THEME_KEY); const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches; const mode=saved|| (prefersDark? 'dark':'light'); if(mode==='dark') root.classList.add('dark'); renderThemeIcon(); })();
+    themeToggle.addEventListener('click',()=>{ const isDark=root.classList.contains('dark'); setTheme(isDark? 'light':'dark'); });
+
+    const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    document.querySelectorAll('[data-plan]').forEach(btn=>btn.addEventListener('click',()=>{
+      planField.value=btn.getAttribute('data-plan');
+      priceField.value=btn.getAttribute('data-price');
+      if((btn.getAttribute('data-plan')||'').toLowerCase().includes('eldorado')){
+        modalNote.textContent = "After confirmation and payment, you'll receive full account credentials (mail + pass + gmail pass). 2FA is not enabled. Verification available for 24 hours.";
+      } else {
+        modalNote.textContent = '';
+      }
+      modal.classList.remove('hidden');
+      setTimeout(()=>document.getElementById('buyerName').focus(),150);
+    }));
+
+    document.getElementById('cancelModal').addEventListener('click',()=>modal.classList.add('hidden'));
+    modal.addEventListener('click',e=>{if(e.target===modal||e.target.classList.contains('bg-black/40'))modal.classList.add('hidden')});
+
+    function showToast(message='Purchase submitted', success=true){
+      toastInner.textContent = message;
+      toastInner.className = (success ? 'rounded-md bg-emerald-600 text-white px-4 py-3 shadow-lg' : 'rounded-md bg-rose-600 text-white px-4 py-3 shadow-lg');
+      toast.classList.remove('pointer-events-none');
+      toast.style.opacity='1';
+      toast.style.transform='translateY(0)';
+      setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translateY(16px)';setTimeout(()=>toast.classList.add('pointer-events-none'),300)},1800)
+    }
+
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      modal.classList.add('hidden');
+      const planText=(planField.value||'').toLowerCase();
+      if(planText.includes('eldorado')){
+        showToast('Account credentials sent — check within 24 hours', true);
+      } else {
+        showToast('Purchase submitted', true);
+      }
+    });
+
+    const pObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const t=e.target.getAttribute('data-target');e.target.style.width=t+'%'}})},{threshold:.4});
+    document.querySelectorAll('.progress-bar').forEach(el=>pObserver.observe(el));
+  </script>
 </body>
 </html>
